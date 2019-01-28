@@ -5,16 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
+    "linter": "eslint --quiet '**/*.js'",
     "exec": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
     "books-lib": "git+https://github.com/gutogm/books-lib.git",
     "cheerio": "^1.0.0-rc.2"
   },
   "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0",
     "nodemon": "^1.18.9"
   }
 }

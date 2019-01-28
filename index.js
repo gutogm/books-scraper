@@ -13,4 +13,3 @@ async function run(url) {
 }
 run(URL)
   .catch(err => console.error(err));
-
