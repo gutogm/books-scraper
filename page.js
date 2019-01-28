@@ -4,15 +4,15 @@ const API = require('books-lib');
 const Promise = require('bluebird');
 
 class Book {
-  static _title(e) {
+  static getTitle(e) {
     return e.children[0].data;
   }
 
-  static _language(e) {
+  static getLanguage(e) {
     return e.children[0].data;
   }
 
-  static _isbn(e) {
+  static getISBN(e) {
     const { href } = e.attribs;
     let isbn = 'Unavailable';
     if (href.indexOf('amazon.com') > -1) {
@@ -21,7 +21,7 @@ class Book {
     return isbn;
   }
 
-  static _description(e) {
+  static getDescription(e) {
     return e.children
       .map((el) => {
         if (el.type === 'text') return el.data;
@@ -58,16 +58,16 @@ class Books {
             this.count += 1;
             this.structure[this.count] = { description: '' };
             this.structure.length = this.count + 1;
-            this.structure[this.count].title = Book._title(element);
+            this.structure[this.count].title = Book.getTitle(element);
           }
           if (element.name === 'div') {
-            this.structure[this.count].language = Book._language(element);
+            this.structure[this.count].language = Book.getLanguage(element);
           }
           if (element.name === 'a') {
-            this.structure[this.count].isbn = Book._isbn(element);
+            this.structure[this.count].isbn = Book.getISBN(element);
           }
           if (element.name === 'p') {
-            const description = `${this.structure[this.count].description} ${Book._description(element)}`;
+            const description = `${this.structure[this.count].description} ${Book.getDescription(element)}`;
             this.structure[this.count].description = description;
           }
         }
@@ -87,12 +87,12 @@ class Books {
   }
 
   next(idx = -1) {
-    const _idx = idx + 1;
-    const element = this.children[`${_idx}`];
+    const idy = idx + 1;
+    const element = this.children[`${idy}`];
     if (!element) return null;
     return {
       element,
-      next: () => this.next(_idx),
+      next: () => this.next(idy),
     };
   }
 
