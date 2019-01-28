@@ -1,0 +1,21 @@
+{
+  "name": "books-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "exec": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "books-lib": "git+https://github.com/gutogm/books-lib.git",
+    "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
