@@ -12,8 +12,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "books-lib": "git+https://github.com/gutogm/books-lib.git",
-    "cheerio": "^1.0.0-rc.2",
-    "dotenv": "^6.2.0"
+    "cheerio": "^1.0.0-rc.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
