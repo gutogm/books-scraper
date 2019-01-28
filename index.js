@@ -4,12 +4,13 @@ const URL = 'https://kotlinlang.org/docs/books.html';
 
 async function run(url) {
   const books = new Books();
-  // extract data from page
+  // extraindo dados da pagina
   await books.extract(url);
-  // console.log(books.article);
+  // transformação dos dados para
+  // estrutura interna
   books.transform();
-  console.log(books.structure);
-  // books.load();
+  // carregamento de dados utilizando api
+  await books.load();
 }
 run(URL)
   .catch(err => console.error(err));
