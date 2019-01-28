@@ -1,12 +1,12 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-const API = require('books-lib');
+const Books = require('books-lib');
 
 const page = require('./page');
 
 const URL = 'https://kotlinlang.org/docs/books.html';
 
-let count = 0;
+let count = -1;
 const structure = {};
 
 function next(children, idx=-1) {
@@ -31,7 +31,7 @@ function extract(item) {
       if(element.name === 'h2') {
         count += 1;
         structure[count] = { description: '' };
-        structure.length = count;
+        structure.length = count + 1;
         structure[count].title = page.getTitle(element);
       }
       if(element.name === 'div'){
@@ -59,8 +59,7 @@ async function run(url) {
   }
   for (let index = 0; index < structure.length; index++) {
     const element = structure[`${index}`];
-    const book = await API.create(element);
-    console.log(book);
+    const book = await Books.create(element);
     console.log(`book with id ${book.id} created.`);
   }
 }
