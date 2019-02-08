@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "linter": "eslint --quiet '**/*.js'",
-    "exec": "node index.js"
+    "app": "node index.js"
   },
   "author": "",
   "license": "ISC",
