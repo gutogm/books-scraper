@@ -10,7 +10,7 @@ A imagem da aplicação está no docker hub
 Para subir a aplicação com um banco de dados, só é necessário rodar o seguinte
 comando dentro da pasta da aplicação
 ```bash
-# criar banco de dados postgresql
+# rodar scraper e acompanhar os logs
 docker-compose up books-scraper
 ```
 Obs.: A URL da API é http://localhost:3000 por padrão.
